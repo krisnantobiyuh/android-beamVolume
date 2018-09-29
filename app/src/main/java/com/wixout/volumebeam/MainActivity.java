@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText edtWidth, edtHeight, edtLength;
     private Button btnCalculate;
@@ -23,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
         edtLength = (EditText)findViewById(R.id.edt_length);
         btnCalculate = (Button)findViewById(R.id.btn_calculate);
         tvResult     = (TextView)findViewById(R.id.tv_result);
-        btnCalculate.setOnClickListener(View.OnClickListener);
+        btnCalculate.setOnClickListener(this);
     }
 
+    @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_calculate){
             String length = edtLength.getText().toString().trim();
